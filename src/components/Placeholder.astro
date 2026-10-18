@@ -1,0 +1,6 @@
+---
+// Box where the client's REAL photo goes. No stock images (b3-web-style rule).
+interface Props { label: string; class?: string }
+const { label, class: cls = '' } = Astro.props;
+---
+<div class:list={['ph', cls]} role="img" aria-label={`ตำแหน่งรูป: ${label}`}>[{label}]</div>

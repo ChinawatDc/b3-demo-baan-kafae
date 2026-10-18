@@ -1,0 +1,25 @@
+@import '@fontsource/pridi/600.css';
+@import '@fontsource/fraunces/500.css';
+@import '@fontsource/sarabun/400.css';
+@import '@fontsource/sarabun/600.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 3rem; } /* sticky demo banner */
+  body { @apply bg-cream text-ink font-body text-[17px] leading-[1.7] antialiased; }
+  h1, h2, h3 { @apply font-head font-semibold; }
+  :focus-visible { outline: 3px solid #A35A26; outline-offset: 3px; }
+}
+@layer components {
+  .wrap { @apply mx-auto max-w-wrap px-5 md:px-8; }
+  .eyebrow { @apply font-en text-[13px] font-medium uppercase tracking-eyebrow text-green-ink; }
+  .h2 { @apply mt-2 text-[30px] leading-tight md:text-[38px]; }
+  .btn { @apply inline-flex min-h-[44px] items-center rounded-full px-[22px] py-[11px] font-semibold no-underline transition-transform hover:-translate-y-0.5; }
+  .btn-line { @apply btn bg-line text-ink; }
+  .btn-ghost { @apply btn border-[1.5px] border-ink text-ink; }
+  .ph { @apply flex items-center justify-center rounded-[10px] bg-ph p-3 text-center text-[13px] text-ph-ink; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }

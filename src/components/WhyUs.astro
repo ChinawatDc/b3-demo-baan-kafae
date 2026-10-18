@@ -1,0 +1,19 @@
+---
+import { whyUs } from '../data/site';
+import Placeholder from './Placeholder.astro';
+---
+<section class="py-14 md:py-20" aria-labelledby="why-title">
+  <div class="wrap text-center">
+    <p class="eyebrow">{whyUs.eyebrow}</p>
+    <h2 id="why-title" class="h2">{whyUs.title}</h2>
+    <ul class="mt-10 grid gap-7 md:grid-cols-3">
+      {whyUs.items.map((it) => (
+        <li>
+          <Placeholder label={it.photo} class="h-[220px] rounded-arch" />
+          <h3 class="mb-1.5 mt-3.5 text-[22px]">{it.title}</h3>
+          <p>{it.text}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

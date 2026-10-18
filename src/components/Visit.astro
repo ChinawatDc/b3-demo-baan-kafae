@@ -1,0 +1,21 @@
+---
+import { site, visit } from '../data/site';
+import Placeholder from './Placeholder.astro';
+---
+<section id="visit" class="bg-green-ink py-14 text-white md:py-20" aria-labelledby="visit-title">
+  <div class="wrap grid items-center gap-12 md:grid-cols-2">
+    <div>
+      <p class="eyebrow !text-sand">{visit.eyebrow}</p>
+      <h2 id="visit-title" class="h2 mb-4">{visit.title}</h2>
+      <address class="not-italic">
+        {site.hours}<br />{site.address}<br />
+        โทร {site.phoneLabel}<br />LINE {site.lineLabel}
+      </address>
+      <div class="mt-5 flex flex-wrap gap-3">
+        <a class="btn-line" href={site.lineUrl}>{visit.lineCta}</a>
+        <a class="btn bg-white text-ink" href={site.mapsUrl}>{visit.mapCta}</a>
+      </div>
+    </div>
+    <Placeholder label={visit.map} class="h-[300px] !bg-green-soft !text-[#1F3A33]" />
+  </div>
+</section>

@@ -1,0 +1,10 @@
+---
+import { site, footer } from '../data/site';
+---
+<footer class="py-7 pb-24 text-sm text-ink/80 md:pb-7">
+  <div class="wrap flex flex-wrap justify-between gap-2">
+    <span>{footer.copy}</span><span>{site.credit}</span>
+  </div>
+</footer>
+<!-- Mobile-only floating LINE button (b3-web-style section library) -->
+<a href={site.lineUrl} class="btn-line fixed bottom-4 right-4 z-10 shadow-md md:hidden" aria-label="แอด LINE ร้าน">LINE</a>

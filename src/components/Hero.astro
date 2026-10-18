@@ -1,0 +1,28 @@
+---
+import { site, nav, hero } from '../data/site';
+import Placeholder from './Placeholder.astro';
+---
+<header class="bg-sand">
+  <div class="wrap">
+    <nav class="flex items-center justify-between py-5" aria-label="เมนูหลัก">
+      <a href="#top" class="font-head text-xl font-semibold text-ink no-underline">{site.name}</a>
+      <ul class="hidden gap-6 text-[15px] md:flex">
+        {nav.map((n) => <li><a class="text-ink no-underline hover:underline" href={n.href}>{n.label}</a></li>)}
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap grid items-center gap-10 pb-12 pt-6 md:grid-cols-[1.1fr_.9fr] md:pb-[72px] md:pt-14">
+    <div>
+      <p class="eyebrow">{hero.eyebrow}</p>
+      <h1 class="mb-4 mt-3 text-[42px] leading-[1.12] md:text-[64px]">
+        {hero.titleLines.map((l, i) => <>{l}{i < hero.titleLines.length - 1 && <br />}</>)}
+      </h1>
+      <p>{hero.lead}</p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a class="btn-line" href={site.lineUrl}>{hero.lineCta}</a>
+        <a class="btn-ghost" href={site.mapsUrl}>{hero.mapCta}</a>
+      </div>
+    </div>
+    <Placeholder label={hero.photo} class="h-[320px] rounded-arch md:h-[440px]" />
+  </div>
+</header>

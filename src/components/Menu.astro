@@ -1,0 +1,20 @@
+---
+import { menu } from '../data/site';
+---
+<section id="menu" class="bg-paper py-14 md:py-20" aria-labelledby="menu-title">
+  <div class="wrap">
+    <div class="text-center">
+      <p class="eyebrow">{menu.eyebrow}</p>
+      <h2 id="menu-title" class="h2">{menu.title}</h2>
+    </div>
+    <ul class="mt-9 grid gap-x-14 gap-y-2.5 md:grid-cols-2">
+      {menu.items.map((m) => (
+        <li class="flex justify-between border-b border-dashed border-rule py-2.5">
+          <span>{m.name}</span>
+          <span class="font-en text-caramel-ink" aria-label={`${m.price} บาท`}>{m.price}</span>
+        </li>
+      ))}
+    </ul>
+    <p class="mt-6 text-center text-[15px] text-ink/80">{menu.note}</p>
+  </div>
+</section>
