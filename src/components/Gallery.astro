@@ -10,8 +10,8 @@ const [first, ...rest] = gallery.photos;
       <h2 id="gallery-title" class="h2">{gallery.title}</h2>
     </div>
     <div class="mt-9 grid grid-cols-2 grid-rows-[160px_120px_120px] gap-3.5 md:grid-cols-[2fr_1fr_1fr] md:grid-rows-[200px_200px]">
-      <Placeholder label={first} class="col-span-2 md:col-span-1 md:row-span-2" />
-      {rest.map((p) => <Placeholder label={p} />)}
+      <Placeholder src="gallery-1" label={first} class="col-span-2 md:col-span-1 md:row-span-2" />
+      {rest.map((p, i) => <Placeholder src={`gallery-${i + 2}`} label={p} />)}
     </div>
   </div>
 </section>

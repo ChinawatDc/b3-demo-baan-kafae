@@ -1,6 +1,13 @@
 ---
-// Box where the client's REAL photo goes. No stock images (b3-web-style rule).
-interface Props { label: string; class?: string }
-const { label, class: cls = '' } = Astro.props;
+// Box for the client's REAL photo. In the demo it shows DESIGNER's line drawing (no stock images).
+import { ill } from '../data/illustrations';
+interface Props { label: string; class?: string; src?: string }
+const { label, class: cls = '', src } = Astro.props;
 ---
-<div class:list={['ph', cls]} role="img" aria-label={`ตำแหน่งรูป: ${label}`}>[{label}]</div>
+{src ? (
+  <div class:list={['overflow-hidden rounded-[10px] bg-ph', cls]}>
+    <img src={`/illustrations/${src}.svg`} alt={ill[src] || label} class="h-full w-full object-cover" loading={src === 'hero' ? 'eager' : 'lazy'} decoding="async" />
+  </div>
+) : (
+  <div class:list={['ph', cls]} role="img" aria-label={`ตำแหน่งรูป: ${label}`}>[{label}]</div>
+)}
