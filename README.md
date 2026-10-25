@@ -1,20 +1,58 @@
-# B3 demo — บ้านกาแฟริมคลอง (ร้านสมมติ)
+# บ้านกาแฟริมคลอง — B3 demo
 
-เว็บตัวอย่างผลงานของ B3 Web Studio เป็นหน้า Landing แบบ static หน้าเดียว
-**ทุกอย่างในเว็บเป็นข้อมูลสมมติ** ไม่มีเบอร์โทร LINE หรือที่อยู่จริง ลิงก์ติดต่อเป็น `#` ใส่ `noindex,nofollow` ไว้ และมีแถบ "เว็บตัวอย่างผลงาน ร้านสมมติ" ติดอยู่ด้านบนตลอด
+Landing page ตัวอย่างผลงานของ **B3 Web Studio**  
+ร้านกาแฟริมคลองแบบ static หน้าเดียว · **ข้อมูลทั้งหมดสมมติ** (ไม่มีเบอร์/LINE/ที่อยู่จริง)
 
-- Stack: Astro 5.18 (static), Tailwind 3.4 และฟอนต์ OFL ผ่าน @fontsource (Pridi, Fraunces, Sarabun) · Node ≥ 18.20.8 (ทดสอบบน 20.19)
-- เนื้อหา: `src/data/site.ts` · design tokens: `tailwind.config.mjs` · section: `src/components/`
-- รูปทุกรูปเป็นกล่อง placeholder เพราะไม่มีรูป stock
+> แถบด้านบน: `เว็บตัวอย่างผลงาน ร้านสมมติ` · `noindex,nofollow` · ลิงก์ติดต่อเป็น `#`
+
+![OG preview](./public/og.png)
+
+## Stack
+
+| | |
+|---|---|
+| Framework | Astro 5 (static) |
+| Style | Tailwind 3.4 |
+| Fonts | Pridi · Fraunces · Sarabun (`@fontsource`, OFL) |
+| Node | ≥ 18.20.8 (tested on 20.x) |
+
+## โครงสร้าง
+
+```
+src/
+  data/site.ts          # ข้อความทั้งหมด (แก้เนื้อหาที่นี่)
+  data/illustrations.ts # alt ของภาพ line drawing
+  components/           # Hero · WhyUs · Menu · Gallery · Visit · Footer
+  layouts/Base.astro
+  pages/index.astro
+  styles/global.css
+public/
+  illustrations/        # SVG จาก DESIGNER (ไม่ใช้ stock photo)
+  og.png · favicon.svg
+```
+
+## รันท้องถิ่น
 
 ```bash
 npm ci
 npm run dev -- --host 127.0.0.1 --port 4321
-npm run build                        # -> dist/
+npm run build              # → dist/
 npm run preview -- --host 127.0.0.1 --port 4322
 ```
 
-## Deploy (ยังไม่อนุมัติ)
-ยังไม่มี remote และยังไม่มี host ใดได้รับอนุมัติ ถ้าคุณ Chinawat อนุมัติ host แล้ว:
-build command `npm run build` · output `dist` · ตั้ง `SITE_URL=https://<โดเมนที่อนุมัติ>` ตอน build (ใช้กับ canonical และ og:image)
-ไม่ต้องใช้ secret หรือ env อื่น
+## Deploy (Vercel)
+
+| Setting | Value |
+|---|---|
+| Framework | Astro |
+| Build | `npm run build` |
+| Output | `dist` |
+| Env (optional) | `SITE_URL=https://<โดเมน>` — ใช้กับ canonical / og:image |
+
+ไม่ต้องมี secret อื่น
+
+## หมายเหตุ
+
+- รูปจริงของร้านใช้ placeholder / line illustration แทน stock
+- เนื้อหาแก้ได้ที่ `src/data/site.ts`
+- design tokens อยู่ที่ `tailwind.config.mjs`
