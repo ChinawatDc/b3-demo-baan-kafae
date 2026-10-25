@@ -3,6 +3,17 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
+  "description": "B3 Web Studio portfolio demo: fictional cafe บ้านกาแฟริมคลอง (static Astro site)",
+  "license": "MIT",
+  "author": "B3 Web Studio",
+  "homepage": "https://b3-demo-baan-kafae.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChinawatDc/b3-demo-baan-kafae.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ChinawatDc/b3-demo-baan-kafae/issues"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -17,7 +28,6 @@
     "astro": "~5.18.2",
     "tailwindcss": "~3.4.17"
   },
-  "description": "B3 Web Studio portfolio demo: fictional cafe บ้านกาแฟริมคลอง (static Astro site)",
   "engines": {
     "node": ">=18.20.8"
   }
